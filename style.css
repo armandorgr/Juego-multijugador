@@ -1,0 +1,87 @@
+body{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.container-contadores{
+    position: absolute;
+    align-self: center;
+    justify-self: center;
+    display: flex;
+    gap: 20px;
+    color: white;
+    z-index: 1;
+    display: none;
+}
+
+.contador{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
+    padding: 5px;
+    background-color: black;
+}
+
+.casilla{
+    height: 100%;
+    width: 100%;
+    border: 1px solid black;
+    border-radius: 2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: green;
+    z-index: 0;
+    /* background-color: red; */
+}
+
+.container{
+    /* width: 100vw; */
+    padding: 20px;
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+}
+
+/*CREAMOS LAS CLASESE DE LAS POSICIONES OBJETIV, J1, J2*/
+
+
+.j1, .j2{
+    transform: scale(1.1);
+    transition: 0.2s ease-in-out transform;
+    background-size: min(100%, 7rem) 100%;
+    background-color: white;
+}
+
+.reset{
+    position: absolute;
+    align-self: flex-end;
+    justify-self: center;
+    padding: 1.5rem;
+    border-radius: 10px;
+    background-color: red;
+    font-size: 1rem;
+    color: white;
+    border: 2px solid black;
+    transition: 0.3s ease all;
+    cursor: pointer;
+    display: none;
+}
+
+.reset:hover{
+    box-shadow: 0 2px 16px 2px black;
+    transition: 0.3s ease all;
+}

@@ -16,8 +16,9 @@ let nFilas;
 let nColumnas;
 
 /**
- * @param
- * @returns
+ * Funcion que recibe por parametro el evento producido y dependiendo del codigo se ejecuta una funcion u otra.
+ * @param {event} evento
+ * @returns no
  */
 function movimiento(event) {
     switch (event.code) {
@@ -50,6 +51,11 @@ function movimiento(event) {
     }
 }
 
+/**
+ * Funcion que crea los marcadores y los añade al HTML
+ * @param no
+ * @returns no
+ */
 function marcadores() {
     let contenedorContador;
     let contador;
@@ -72,14 +78,23 @@ function marcadores() {
     }
 
 }
-
+/**
+ * Funcion que recibe el id del contador que debe sumar y lo suma en el HTML.
+ * @param {String} id 
+ * @returns no
+ */
 function sumarContador(id) {
     let contadorSumar = document.getElementById(id);
     let p = contadorSumar.getElementsByTagName("p")[0];
     puntos[`puntos_${id}`]++;
     p.textContent = puntos[`puntos_${id}`];
 }
-
+/**
+ * Funcion que valida si hay un ganador y de ser el caso muestra el alert y ejecuta las funciones correspondientes.
+ * @param {String} clase
+ * @param {String} posiciones
+ * @returns no
+ */
 function validarGanador(clase, posiciones) {
     let boton;
     let contador;
@@ -93,7 +108,12 @@ function validarGanador(clase, posiciones) {
         sumarContador(clase);
     }
 }
-
+/**
+ * Funcion que recibe por parametro el numero de fila y columnas y ajusta el tamaño del tablero en funcion de la diferencia.
+ * @param {number} nFilas
+ * @param {number} nColumnas
+ * @returns no
+ */
 function ajustarTamanio(nFilas, nColumnas) {
     main.style.height = "100vh";
     main.style.width = "100vw";
@@ -108,7 +128,12 @@ function ajustarTamanio(nFilas, nColumnas) {
         }
     }
 }
-
+/**
+ * Funcion que recibe por parametro el numero de fila y columnas y crea la cantidad de casillas correspondiente.
+ * @param {number} nFilas
+ * @param {number} nColumnas
+ * @returns no
+ */
 function crearCasillas(nFilas, nColumnas) {
     let div;
     for (let i = 0; i < nFilas; i++) {
@@ -121,7 +146,11 @@ function crearCasillas(nFilas, nColumnas) {
         }
     }
 }
-
+/**
+ * Funcion que incia el tablero.
+ * @param no
+ * @returns no
+ */
 function inicio() {
     nFilas = Math.floor(Math.random() * 24) + 5;
     nColumnas = Math.floor(Math.random() * 24) + 5;
@@ -136,7 +165,11 @@ function inicio() {
     boton();
     marcadores();
 }
-
+/**
+ * Funcion que recibe por parametro el id de la casilla y devuelve el id con una fila sumada
+ * @param {string} id
+ * @returns {string} id
+ */
 function sumarFila(id) {
     let posicionColumna = id.indexOf("c");
     let valorColumna = parseInt(id.substring(posicionColumna + 1));
@@ -147,7 +180,11 @@ function sumarFila(id) {
     }
     return convertirId([valorFila, valorColumna]);
 }
-
+/**
+ * Funcion que recibe por parametro el id de la casilla y devuelve el id con una fila restada
+ * @param {string} id
+ * @returns {string} id
+ */
 function RestarFila(id) {
     let posicionColumna = id.indexOf("c");
     let valorColumna = parseInt(id.substring(posicionColumna + 1));
@@ -158,7 +195,11 @@ function RestarFila(id) {
     }
     return convertirId([valorFila, valorColumna]);
 }
-
+/**
+ * Funcion que recibe por parametro el id de la casilla y devuelve el id con una columna sumada
+ * @param {string} id
+ * @returns {string} id
+ */
 function sumarColumna(id) {
     let posicionColumna = id.indexOf("c");
     let valorColumna = parseInt(id.substring(posicionColumna + 1));
@@ -169,7 +210,11 @@ function sumarColumna(id) {
     }
     return convertirId([valorFila, valorColumna]);
 }
-
+/**
+ * Funcion que recibe por parametro el id de la casilla y devuelve el id con una columna restada
+ * @param {string} id
+ * @returns {string} id
+ */
 function restarColumna(id) {
     let posicionColumna = id.indexOf("c");
     let valorColumna = parseInt(id.substring(posicionColumna + 1));
@@ -180,7 +225,11 @@ function restarColumna(id) {
     }
     return convertirId([valorFila, valorColumna]);
 }
-
+/**
+ * Funcion que recibe por parametro la clase de la ficha a mover y la mueve si esta posicion no esta ocupada
+ * @param {string} clase
+ * @returns no
+ */
 function moveUp(clase) {
     let posicionActual = posicionesOcupadas[clase];
     let casillaActual = document.getElementById(posicionActual);
@@ -195,6 +244,11 @@ function moveUp(clase) {
 
 }
 
+/**
+ * Funcion que recibe por parametro la clase de la ficha a mover y la mueve si esta posicion no esta ocupada
+ * @param {string} clase
+ * @returns no
+ */
 function moveDown(clase) {
     let posicionActual = posicionesOcupadas[clase];
     let casillaActual = document.getElementById(posicionActual);
@@ -208,7 +262,11 @@ function moveDown(clase) {
 
 
 }
-
+/**
+ * Funcion que recibe por parametro la clase de la ficha a mover y la mueve si esta posicion no esta ocupada
+ * @param {string} clase
+ * @returns no
+ */
 function moveRight(clase) {
     let posicionActual = posicionesOcupadas[clase];
     let casillaActual = document.getElementById(posicionActual);
@@ -223,7 +281,11 @@ function moveRight(clase) {
 
 
 }
-
+/**
+ * Funcion que recibe por parametro la clase de la ficha a mover y la mueve si esta posicion no esta ocupada
+ * @param {string} clase
+ * @returns no
+ */
 function moveLeft(clase) {
     let posicionActual = posicionesOcupadas[clase];
     let casillaActual = document.getElementById(posicionActual);
@@ -237,7 +299,11 @@ function moveLeft(clase) {
 
 
 }
-
+/**
+ * Funcion que reinicia todo el juego.
+ * @param no
+ * @returns no
+ */
 function reset() {
     posicionesOcupadas = {
         j1: null,
@@ -247,7 +313,11 @@ function reset() {
     inicio();
     document.addEventListener("keydown", movimiento);
 }
-
+/**
+ * Funcion que crea el boton de reinicio.
+ * @param no
+ * @returns no
+ */
 function boton() {
     let boton = document.createElement("button");
     boton.classList.add("reset");
@@ -255,7 +325,12 @@ function boton() {
     boton.setAttribute("onclick", "reset()");
     main.appendChild(boton);
 }
-
+/**
+ * Funcion que recibe por parametro la fila y columna limite y devuelve una posicion valida que no exista ya.
+ * @param {Number} columnaLimite
+ * @param {Number} filaLimite
+ * @returns {String} id
+ */
 function generarPosicionesAleatorias(filaLimite, columnaLimite) {
     let fila;
     let columna;
@@ -267,11 +342,21 @@ function generarPosicionesAleatorias(filaLimite, columnaLimite) {
     } while (Object.values(posicionesOcupadas).includes(id) || id == posicionObjetivo);
     return convertirId([fila, columna]);
 }
-
+/**
+ * Funcion que recibe por parametro las posiciones en formato array y devuelve el id en cadena
+ * @param {number[]} posiciones
+ * @returns {string} id
+ */
 function convertirId(posiciones) {
     return `f${posiciones[0]}c${posiciones[1]}`;
 }
-
+/**
+ * Funcion que recibe por parametro la clase, posicion y estaddo de la ficha a imprimir por pantalla
+ * @param {string} clase
+ * @param {string} posiciones
+ * @param {string} estado
+ * @returns no
+ */
 function imprimirCasilla(clase, posiciones, estado) {
     let casilla = document.getElementById(posiciones);
     casilla.classList.add(clase);
@@ -292,13 +377,21 @@ function imprimirCasilla(clase, posiciones, estado) {
             break;
     }
 }
-
+/**
+ * Funcion que recibe por parametro la cantidad de obstaculos a crear y los crea en el tablero
+ * @param {number} cantidad
+ * @returns no
+ */
 function crearObstaculos(cantidad) {
     for (let i = 0; i < cantidad; i++) {
         imprimirCasilla(`roca${i}`, generarPosicionesAleatorias(nFilas, nColumnas), "Roca");
     }
 }
-
+/**
+ * Funcion que pinta en el tablero las fichas de los jugadores, objetivo y tesoro
+ * @param no
+ * @returns no
+ */
 function pintarCasillas() {
     /**Usar MATH.RANDOM con las nfilas y ncolumnas para colocarlo en el sitio  */
     imprimirCasilla("objetivo", generarPosicionesAleatorias(nFilas, nColumnas), "objetivo");

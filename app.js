@@ -121,10 +121,8 @@ function ajustarTamanio(nFilas, nColumnas) {
     if (Math.abs(nFilas - nColumnas) >= 4) {
         if (nFilas > nColumnas) {
             main.style.width = `${(nColumnas * 100) / nFilas}vw`;
-            console.log("primer");
         } else {
             main.style.height = `${(nFilas * 100) / nColumnas}vh`;
-            console.log("segun");
         }
     }
 }

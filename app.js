@@ -21,6 +21,7 @@ let nColumnas;
  * @returns no
  */
 function movimiento(event) {
+    console.log(event.code);
     switch (event.code) {
         case "ArrowUp":
             moveUp("j1");
@@ -309,7 +310,6 @@ function reset() {
     };
     main.replaceChildren();
     inicio();
-    document.addEventListener("keydown", movimiento);
 }
 /**
  * Funcion que crea el boton de reinicio.
@@ -399,5 +399,5 @@ function pintarCasillas() {
 }
 
 // agregamos el evento load al documento
-document.addEventListener("load", inicio());
-document.addEventListener("keydown", movimiento);
+window.addEventListener("load", inicio);
+window.addEventListener("keydown", movimiento);

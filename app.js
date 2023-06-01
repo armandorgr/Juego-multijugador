@@ -21,7 +21,6 @@ let nColumnas;
  * @returns no
  */
 function movimiento(event) {
-    console.log(event.code);
     switch (event.code) {
         case "ArrowUp":
             moveUp("j1");
